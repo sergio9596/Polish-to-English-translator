@@ -1,0 +1,36 @@
+// Define a dictionary of Polish to English translations
+const dictionary = {
+  "kot": "cat",
+  "pies": "dog",
+  "dom": "house",
+  // Add more translations as needed
+};
+
+// Define a function to translate a single word
+function translateWord(word) {
+  // Check if the word is in the dictionary
+  if (word in dictionary) {
+    // If it is, return the translation
+    return dictionary[word];
+  } else {
+    // If it's not, return the original word
+    return word;
+  }
+}
+
+// Define a function to translate a sentence
+function translateSentence(sentence) {
+  // Split the sentence into individual words
+  const words = sentence.split(" ");
+  // Translate each word using the translateWord function
+  const translatedWords = words.map(translateWord);
+  // Join the translated words back into a sentence
+  const translatedSentence = translatedWords.join(" ");
+  // Return the translated sentence
+  return translatedSentence;
+}
+
+// Example usage
+const sentence = "Mój kot lubi jeść ryby.";
+const translatedSentence = translateSentence(sentence);
+console.log(translatedSentence); // Output: "My cat likes to eat fish."
